@@ -1,0 +1,7 @@
+PRETTY_NAME="Flower OS"
+NAME="Flower OS"
+VERSION_ID="1"
+VERSION="1 "
+ID=flower
+ID_LIKE=debian
+HOME_URL="https://github.com/2David353/Flower"
