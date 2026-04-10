@@ -1,0 +1,40 @@
+name: Build Flower OS ISO
+on: 
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: 
+      image: debian:trixie-slim
+      options: --privileged
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install build tools
+        run: |
+          apt update
+          apt install -y live-build debootstrap git cpio systemd-container
+
+      - name: Build ISO
+        run: |
+          mkdir -p build && cd build
+          lb config --architecture amd64 \
+                    --distribution trixie \
+                    --archive-areas "main contrib non-free non-free-firmware" \
+                    --debian-installer live
+          
+          mkdir -p config/includes.chroot
+          cp -r ../etc config/includes.chroot/
+          cp -r ../usr config/includes.chroot/
+          
+          lb build
+
+      - name: Upload ISO
+        uses: actions/upload-artifact@v4
+        with:
+          name: FlowerOS-ISO
+          path: build/*.iso
