@@ -1,0 +1,16 @@
+cinnamon-desktop-environment
+lightdm
+lightdm-gtk-greeter
+
+firefox-esr
+terminal-emulator
+nemo
+gedit
+
+vlc
+papirus-icon-theme
+fonts-inter
+fonts-roboto
+
+sudo
+network-manager
