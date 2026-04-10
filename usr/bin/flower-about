@@ -1,0 +1,9 @@
+#!/bin/bash
+echo "------------------------------------------"
+echo "        🌸 Welcome to Flower OS 🌸        "
+echo "------------------------------------------"
+echo "Version: 1.0 (Innocence)"
+echo "Base: Debian Stable"
+echo "Desktop: Flower DE (Cinnamon Fork)"
+echo "Design: MacOS-y / Cupertino Style"
+echo "------------------------------------------"
